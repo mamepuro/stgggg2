@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/SpaceBox2.csproj": {}
+  },
+  "projects": {
+    "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/SpaceBox2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/SpaceBox2.csproj",
+        "projectName": "SpaceBox2",
+        "projectPath": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/SpaceBox2.csproj",
+        "packagesPath": "/Users/takumi/.nuget/packages/",
+        "outputPath": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/takumi/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Altseed2": {
+              "target": "Package",
+              "version": "[2.0.0-beta2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

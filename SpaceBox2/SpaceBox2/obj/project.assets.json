@@ -1,0 +1,117 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Altseed2/2.0.0-beta2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Altseed2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Altseed2.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/netstandard2.1/libAltseed2_Core": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-x64/native/netstandard2.1/libAltseed2_Core.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-x64/native/netstandard2.1/Altseed2_Core.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Altseed2/2.0.0-beta2": {
+      "sha512": "z3oPvawzfP2pYeeR2nNU033kOwbjm80wQ5xotsXw5dBpISSUy2lfDPkN/7c7OAz+ddU/G1u69Yy4oV73QPFs+w==",
+      "type": "package",
+      "path": "altseed2/2.0.0-beta2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "altseed2.2.0.0-beta2.nupkg.sha512",
+        "altseed2.nuspec",
+        "lib/netstandard2.1/Altseed2.dll",
+        "lib/netstandard2.1/Altseed2.xml",
+        "runtimes/linux-x64/native/netstandard2.1/libAltseed2_Core",
+        "runtimes/osx-x64/native/netstandard2.1/libAltseed2_Core.dylib",
+        "runtimes/win-x64/native/netstandard2.1/Altseed2_Core.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Altseed2 >= 2.0.0-beta2"
+    ]
+  },
+  "packageFolders": {
+    "/Users/takumi/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/SpaceBox2.csproj",
+      "projectName": "SpaceBox2",
+      "projectPath": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/SpaceBox2.csproj",
+      "packagesPath": "/Users/takumi/.nuget/packages/",
+      "outputPath": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "/Users/takumi/.config/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "dependencies": {
+          "Altseed2": {
+            "target": "Package",
+            "version": "[2.0.0-beta2, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

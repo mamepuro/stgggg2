@@ -1,0 +1,17 @@
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/SpaceBox2.deps.json
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/SpaceBox2.runtimeconfig.json
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/SpaceBox2.runtimeconfig.dev.json
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/SpaceBox2.dll
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/SpaceBox2.pdb
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/Altseed2.dll
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native/netstandard2.1/libAltseed2_Core
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/runtimes/osx-x64/native/netstandard2.1/libAltseed2_Core.dylib
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/netstandard2.1/Altseed2_Core.dll
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/Debug/netcoreapp3.1/SpaceBox2.csprojAssemblyReference.cache
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/Debug/netcoreapp3.1/SpaceBox2.AssemblyInfoInputs.cache
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/Debug/netcoreapp3.1/SpaceBox2.AssemblyInfo.cs
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/Debug/netcoreapp3.1/SpaceBox2.csproj.CoreCompileInputs.cache
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/Debug/netcoreapp3.1/SpaceBox2.csproj.CopyComplete
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/Debug/netcoreapp3.1/SpaceBox2.dll
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/Debug/netcoreapp3.1/SpaceBox2.pdb
+/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/Debug/netcoreapp3.1/SpaceBox2.genruntimeconfig.cache

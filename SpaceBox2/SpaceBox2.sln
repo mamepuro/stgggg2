@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBox2", "SpaceBox2\SpaceBox2.csproj", "{715372F8-95AE-49A4-9FE3-0CFBF1D21A9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{715372F8-95AE-49A4-9FE3-0CFBF1D21A9A}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{715372F8-95AE-49A4-9FE3-0CFBF1D21A9A}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{715372F8-95AE-49A4-9FE3-0CFBF1D21A9A}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{715372F8-95AE-49A4-9FE3-0CFBF1D21A9A}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
