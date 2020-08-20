@@ -16,26 +16,27 @@ namespace SpaceBox2
             Position = position;
             _moveDistanceX = new Vector2F(4.0f,0.0f);
             _moveDistanceY = new Vector2F(0.0f,4.0f);
+            chargeTime = 0.0f;
         }
         public void Move()
         {
-            if(Engine.Keyboard.GetKeyState(Key.W) == ButtonState.Hold)
+            if(Engine.Keyboard.GetKeyState(Key.W) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Up) == ButtonState.Hold)
             {
                 Position -= _moveDistanceY;
             }
-            if(Engine.Keyboard.GetKeyState(Key.S) == ButtonState.Hold)
+            if(Engine.Keyboard.GetKeyState(Key.S) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Down) == ButtonState.Hold)
             {
                 Position += _moveDistanceY;
             }
-            if(Engine.Keyboard.GetKeyState(Key.D) == ButtonState.Hold)
+            if(Engine.Keyboard.GetKeyState(Key.D) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Right) == ButtonState.Hold)
             {
                 Position += _moveDistanceX;
             }
-            if(Engine.Keyboard.GetKeyState(Key.A) == ButtonState.Hold)
+            if(Engine.Keyboard.GetKeyState(Key.A) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Left) == ButtonState.Hold)
             {
                 Position -= _moveDistanceX;
             }
-            float playerHalfSizeX = Texture.Size.X / 2.0f;
+            //float playerHalfSizeX = Texture.Size.X / 2.0f;
             _position = Position;
             _position.X = Math.Clamp(_position.X, 0.0f, Engine.WindowSize.X - Texture.Size.X);
             _position.Y = Math.Clamp(_position.Y, 0.0f, Engine.WindowSize.Y - Texture.Size.Y);
@@ -45,8 +46,8 @@ namespace SpaceBox2
         {
             if (Engine.Keyboard.GetKeyState(Key.Space) == ButtonState.Push)
             {
-                //PlayerBullet playerBullet = new PlayerBullet(new asd.Vector2DF(position.X + Texture.Size.X + 10.0f, position.Y + Texture.Size.Y / 2.0f));
-                //Engine.AddObject2D(playerBullet);
+                PlayerBullet playerBullet = new PlayerBullet(new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f,0.0f));
+                Engine.AddNode(playerBullet);
             }
         }
         //public void FireChargeBullet()
