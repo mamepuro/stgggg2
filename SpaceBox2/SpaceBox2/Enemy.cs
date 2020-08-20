@@ -5,9 +5,11 @@ namespace SpaceBox2
 {
     public class Enemy:SpriteNode
     {
-        Vector2F _moveVelocity;
+        public Vector2F _moveVelocity;
         //プレイヤーへの参照
         public Player _playerInfo;
+        protected int _bulletFireTimeSpen;
+        protected int _count;
         public Enemy(Vector2F position, Vector2F moveVelocity, Player playerInfo)
         {
             _moveVelocity = moveVelocity;
@@ -62,7 +64,6 @@ namespace SpaceBox2
         protected override void OnUpdate()
         {
             base.OnUpdate();
-            Move();
         //    DisposeEnemy();
         //    CheckCollision();
         }

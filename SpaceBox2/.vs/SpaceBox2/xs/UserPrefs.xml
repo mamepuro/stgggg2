@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{715372F8-95AE-49A4-9FE3-0CFBF1D21A9A}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.SpaceBox2 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SpaceBox2/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SpaceBox2/Enemy.cs">
     <Files>
-      <File FileName="SpaceBox2/Player.cs" Line="50" Column="30" />
-      <File FileName="SpaceBox2/EnemyBullet.cs" Line="11" Column="10" />
-      <File FileName="SpaceBox2/Enemy.cs" Line="2" Column="16" />
-      <File FileName="SpaceBox2/PlayerBullet.cs" Line="22" Column="19" />
+      <File FileName="SpaceBox2/Player.cs" Line="60" Column="39" />
+      <File FileName="SpaceBox2/Enemy.cs" Line="13" Column="10" />
+      <File FileName="SpaceBox2/PlayerBullet.cs" Line="23" Column="10" />
       <File FileName="SpaceBox2/Program.cs" Line="1" Column="1" />
+      <File FileName="SpaceBox2/NomalEnemy.cs" Line="17" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SpaceBox2" expanded="True">
             <Node name="SpaceBox2" expanded="True">
-              <Node name="Player.cs" selected="True" />
+              <Node name="Enemy.cs" selected="True" />
             </Node>
           </Node>
         </State>

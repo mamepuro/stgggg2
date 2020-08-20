@@ -5,7 +5,7 @@ namespace SpaceBox2
 {
     public class PlayerBullet:SpriteNode
     {
-        Vector2F _moveVelocity;
+        public Vector2F _moveVelocity;
         public PlayerBullet(Vector2F position, Vector2F moveVelocity)
         {
             Texture = Texture2D.LoadStrict("Resources/EnemyBullet.png");
