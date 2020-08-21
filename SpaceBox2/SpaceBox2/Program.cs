@@ -9,10 +9,12 @@ namespace SpaceBox2
         static void Main(string[] args)
         {
             Engine.Initialize("SpaceBox", 960, 720);
-            Player player = new Player(new Vector2F(100,100));
-            Engine.AddNode(player);
-            NomalEnemy nomalEnemy = new NomalEnemy(new Vector2F(200, 100), new Vector2F(0.0f, 0.0f), player);
-            Engine.AddNode(nomalEnemy);
+            //Player player = new Player(new Vector2F(100,100));
+            //Engine.AddNode(player);
+            //NomalEnemy nomalEnemy = new NomalEnemy(new Vector2F(200, 100), new Vector2F(0.0f, 0.0f), player);
+            //Engine.AddNode(nomalEnemy);
+            MainNode mainNode = new MainNode();
+            Engine.AddNode(mainNode);
             while(Engine.DoEvents())
             {
                 Engine.Update();
@@ -20,7 +22,7 @@ namespace SpaceBox2
                 {
                     break;
                 }
-            }
+            } 
             Engine.Terminate();
         }
     }

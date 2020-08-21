@@ -50,21 +50,21 @@ namespace SpaceBox2
                 Engine.AddNode(playerBullet);
             }
         }
-        //public void FireChargeBullet()
-        //{
-        //    if (asd.Engine.Keyboard.GetKeyState(asd.Keys.N) == asd.KeyState.Hold)
-        //    {
-        //        chargeTime += 0.2f;
-        //        chargeTime = asd.MathHelper.Clamp(chargeTime, 60.0f, 0.0f);
-        //    }
-        //    if (asd.Engine.Keyboard.GetKeyState(asd.Keys.A) == asd.KeyState.Push && chargeTime > 0.0f)
-        //    {
-        //        PlayerBullet playerBullet = new PlayerBullet(new asd.Vector2DF(position.X + Texture.Size.X + 10.0f, position.Y + Texture.Size.Y / 2.0f), chargeTime);
-        //        playerBullet.Scale = new asd.Vector2DF(chargeTime, chargeTime);
-        //        asd.Engine.AddObject2D(playerBullet);
-        //        chargeTime = 0.0f;
-        //    }
-        //}
+        public void FireChargeBullet()
+        {
+            if (Engine.Keyboard.GetKeyState(Key.N) == ButtonState.Hold)
+            {
+                chargeTime += 0.2f;
+                chargeTime = Math.Clamp(chargeTime, 0.0f, 60.0f);
+            }
+            if (Engine.Keyboard.GetKeyState(Key.I) == ButtonState.Push && chargeTime > 0.0f)
+            {
+                PlayerBullet playerBullet = new PlayerBullet(new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f, 0.0f), chargeTime);
+                playerBullet.Scale = new Vector2F(chargeTime, chargeTime);
+                Engine.AddNode(playerBullet);
+                chargeTime = 0.0f;
+            }
+        }
         //public override void OnCollided(CollidableObject collidableObject)
         //{
         //    if (collidableObject is FreezeBullet)
@@ -120,6 +120,7 @@ namespace SpaceBox2
             base.OnUpdate();
             Move();
             FireBullet();
+            FireChargeBullet();
             //FireChargeBullet();
             //CheckCollision();
         }
