@@ -16,10 +16,15 @@ namespace SpaceBox2
             AddChildNode(characterNode);
             var uiNode = new Node();
             AddChildNode(uiNode);
-            player = new Player(new Vector2F(300, 300));
+            player = new Player(this, new Vector2F(300, 300));
             characterNode.AddChildNode(player);
-            NomalEnemy nomalEnemy = new NomalEnemy(new Vector2F(500, 250), new Vector2F(0.0f, 0.0f), player);
+            NomalEnemy nomalEnemy = new NomalEnemy(this, new Vector2F(500, 250), new Vector2F(0.0f, 0.0f), player);
             characterNode.AddChildNode(nomalEnemy);
+        }
+        protected override void OnRemoved()
+        {
+            base.OnRemoved();
+            CollidableObject.objectCollection.Clear();
         }
     }
 }

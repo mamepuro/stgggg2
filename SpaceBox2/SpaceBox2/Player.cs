@@ -4,19 +4,21 @@ using System.Collections.Generic;
 
 namespace SpaceBox2
 {
-    public class Player:SpriteNode
+    public class Player:CollidableObject
     {
         public Vector2F _moveDistanceX;
         public Vector2F _moveDistanceY;
         public float chargeTime;
         public Vector2F _position;
-        public Player(Vector2F position)
+        public Player(MainNode mainNode, Vector2F position):base(mainNode,position)
         {
             Texture = Texture2D.LoadStrict("Resources/player.png");
-            Position = position;
+            doSurvey = true;
+            //Position = position;
             _moveDistanceX = new Vector2F(4.0f,0.0f);
             _moveDistanceY = new Vector2F(0.0f,4.0f);
             chargeTime = 0.0f;
+            collider.Size = Texture.Size;
         }
         public void Move()
         {
@@ -46,7 +48,7 @@ namespace SpaceBox2
         {
             if (Engine.Keyboard.GetKeyState(Key.Space) == ButtonState.Push)
             {
-                PlayerBullet playerBullet = new PlayerBullet(new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f,0.0f));
+                PlayerBullet playerBullet = new PlayerBullet(_mainNode, new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f,0.0f));
                 Engine.AddNode(playerBullet);
             }
         }
@@ -59,7 +61,7 @@ namespace SpaceBox2
             }
             if (Engine.Keyboard.GetKeyState(Key.I) == ButtonState.Push && chargeTime > 0.0f)
             {
-                PlayerBullet playerBullet = new PlayerBullet(new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f, 0.0f), chargeTime);
+                PlayerBullet playerBullet = new PlayerBullet(_mainNode, new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f, 0.0f), chargeTime);
                 playerBullet.Scale = new Vector2F(chargeTime, chargeTime);
                 Engine.AddNode(playerBullet);
                 chargeTime = 0.0f;
@@ -115,6 +117,14 @@ namespace SpaceBox2
         //        }
         //    }
         //}
+        protected override void OnCollide(CollidableObject collidableObject)
+        {
+            base.OnCollide(collidableObject);
+            if(collidableObject is NomalEnemy || collidableObject is EnemyBullet)
+            {
+                Parent.RemoveChildNode(this);
+            }
+        }
         protected override void OnUpdate()
         {
             base.OnUpdate();
