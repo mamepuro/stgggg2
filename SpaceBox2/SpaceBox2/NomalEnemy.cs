@@ -35,7 +35,7 @@ namespace SpaceBox2
         {
             base.OnUpdate();
             Move();
-            JudgeFireBullet();
+            //JudgeFireBullet();
             _count++;
         }
     }

@@ -36,7 +36,7 @@ namespace SpaceBox2
             //コライダの座標を更新する
             collider.Position = Position;
         }
-        protected void RemoveMyselfIfOutOfWindow()
+        protected virtual void RemoveMyselfIfOutOfWindow()
         {
             var halfSize = Texture.Size / 2;
             if (Position.X < -halfSize.X

@@ -21,6 +21,12 @@ namespace SpaceBox2
             NomalEnemy nomalEnemy = new NomalEnemy(this, new Vector2F(500, 250), new Vector2F(0.0f, 0.0f), player);
             characterNode.AddChildNode(nomalEnemy);
         }
+        protected override void OnUpdate()
+        {
+            base.OnUpdate();
+            //デバック用
+            Console.WriteLine(player.playerBullets.Count);
+        }
         protected override void OnRemoved()
         {
             base.OnRemoved();

@@ -10,6 +10,8 @@ namespace SpaceBox2
         public Vector2F _moveDistanceY;
         public float chargeTime;
         public Vector2F _position;
+        private int _maxBulletCountInWindow;
+        public  Queue<PlayerBullet> playerBullets = new Queue<PlayerBullet>();
         public Player(MainNode mainNode, Vector2F position):base(mainNode,position)
         {
             Texture = Texture2D.LoadStrict("Resources/player.png");
@@ -19,6 +21,7 @@ namespace SpaceBox2
             _moveDistanceY = new Vector2F(0.0f,4.0f);
             chargeTime = 0.0f;
             collider.Size = Texture.Size;
+            _maxBulletCountInWindow = 3;
         }
         public void Move()
         {
@@ -46,10 +49,11 @@ namespace SpaceBox2
         }
         public void FireBullet()
         {
-            if (Engine.Keyboard.GetKeyState(Key.Space) == ButtonState.Push)
+            if (Engine.Keyboard.GetKeyState(Key.Space) == ButtonState.Push && playerBullets.Count < _maxBulletCountInWindow)
             {
-                PlayerBullet playerBullet = new PlayerBullet(_mainNode, new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f,0.0f));
+                PlayerBullet playerBullet = new PlayerBullet(_mainNode, new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f,0.0f),this);
                 Engine.AddNode(playerBullet);
+                playerBullets.Enqueue(playerBullet);
             }
         }
         public void FireChargeBullet()
@@ -61,7 +65,7 @@ namespace SpaceBox2
             }
             if (Engine.Keyboard.GetKeyState(Key.I) == ButtonState.Push && chargeTime > 0.0f)
             {
-                PlayerBullet playerBullet = new PlayerBullet(_mainNode, new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f, 0.0f), chargeTime);
+                PlayerBullet playerBullet = new PlayerBullet(_mainNode, new Vector2F(Position.X + Texture.Size.X + 10.0f, Position.Y + Texture.Size.Y / 2.0f), new Vector2F(10.0f, 0.0f), this, chargeTime);
                 playerBullet.Scale = new Vector2F(chargeTime, chargeTime);
                 Engine.AddNode(playerBullet);
                 chargeTime = 0.0f;
