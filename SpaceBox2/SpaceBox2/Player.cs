@@ -10,7 +10,7 @@ namespace SpaceBox2
         public Vector2F _moveDistanceY;
         public float chargeTime;
         public Vector2F _position;
-        private int _maxBulletCountInWindow;
+        public int _maxBulletCountInWindow;
         public  Queue<PlayerBullet> playerBullets = new Queue<PlayerBullet>();
         public Player(MainNode mainNode, Vector2F position):base(mainNode,position)
         {
