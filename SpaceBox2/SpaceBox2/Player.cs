@@ -8,10 +8,12 @@ namespace SpaceBox2
     {
         public Vector2F _moveDistanceX;
         public Vector2F _moveDistanceY;
-        public float chargeTime;
         public Vector2F _position;
+        public float chargeTime;
         public int _maxBulletCountInWindow;
+        public int _hp;
         public  Queue<PlayerBullet> playerBullets = new Queue<PlayerBullet>();
+        public PlayersHealth _playersHealth;
         public Player(MainNode mainNode, Vector2F position):base(mainNode,position)
         {
             Texture = Texture2D.LoadStrict("Resources/player.png");
@@ -22,22 +24,24 @@ namespace SpaceBox2
             chargeTime = 0.0f;
             collider.Size = Texture.Size;
             _maxBulletCountInWindow = 3;
+            _hp = 10;
+            _playersHealth = PlayersHealth.Nomal;
         }
         public void Move()
         {
-            if(Engine.Keyboard.GetKeyState(Key.W) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Up) == ButtonState.Hold)
+            if(Engine.Keyboard.GetKeyState(Key.W) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Up) == ButtonState.Hold && _playersHealth == PlayersHealth.Nomal)
             {
                 Position -= _moveDistanceY;
             }
-            if(Engine.Keyboard.GetKeyState(Key.S) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Down) == ButtonState.Hold)
+            if(Engine.Keyboard.GetKeyState(Key.S) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Down) == ButtonState.Hold && _playersHealth == PlayersHealth.Nomal)
             {
                 Position += _moveDistanceY;
             }
-            if(Engine.Keyboard.GetKeyState(Key.D) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Right) == ButtonState.Hold)
+            if(Engine.Keyboard.GetKeyState(Key.D) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Right) == ButtonState.Hold && _playersHealth == PlayersHealth.Nomal)
             {
                 Position += _moveDistanceX;
             }
-            if(Engine.Keyboard.GetKeyState(Key.A) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Left) == ButtonState.Hold)
+            if(Engine.Keyboard.GetKeyState(Key.A) == ButtonState.Hold || Engine.Keyboard.GetKeyState(Key.Left) == ButtonState.Hold && _playersHealth == PlayersHealth.Nomal)
             {
                 Position -= _moveDistanceX;
             }
@@ -126,7 +130,16 @@ namespace SpaceBox2
             base.OnCollide(collidableObject);
             if(collidableObject is NomalEnemy || collidableObject is EnemyBullet)
             {
-                Parent.RemoveChildNode(this);
+                _hp -= 1;
+                if(_hp <= 0)
+                {
+                    Parent.RemoveChildNode(this);
+                }
+            }
+            if(collidableObject is FreezeBullet)
+            {
+                _playersHealth = PlayersHealth.Frozen;
+                Texture = Texture2D.LoadStrict("Resources/FrozenPlayer.png");
             }
         }
         protected override void OnUpdate()

@@ -10,7 +10,7 @@ namespace SpaceBox2
         public NomalEnemy(MainNode mainNode,Vector2F potision,  Vector2F moveVelociy, Player playerInfo)
             :base(mainNode,potision,moveVelociy,playerInfo)
         {
-            _bulletFireTimeSpen = 90;
+            _bulletFireTimeSpan = 90;
             _count = 0;
         }
         public override void Move()
@@ -35,7 +35,7 @@ namespace SpaceBox2
         {
             base.OnUpdate();
             Move();
-            //JudgeFireBullet();
+            JudgeFireBullet();
             _count++;
         }
     }

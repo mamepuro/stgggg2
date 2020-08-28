@@ -18,8 +18,9 @@ namespace SpaceBox2
             AddChildNode(uiNode);
             player = new Player(this, new Vector2F(300, 300));
             characterNode.AddChildNode(player);
-            NomalEnemy nomalEnemy = new NomalEnemy(this, new Vector2F(500, 250), new Vector2F(0.0f, 0.0f), player);
-            characterNode.AddChildNode(nomalEnemy);
+            //NomalEnemy nomalEnemy = new NomalEnemy(this, new Vector2F(500, 250), new Vector2F(0.0f, 0.0f), player);
+            FreezeBulletEnemy freezeBulletEnemy = new FreezeBulletEnemy(this, new Vector2F(500, 250), new Vector2F(0.0f, 0.0f), player);
+            characterNode.AddChildNode(freezeBulletEnemy);
         }
         protected override void OnUpdate()
         {

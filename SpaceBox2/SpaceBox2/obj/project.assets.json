@@ -52,28 +52,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/takumi/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\ayata\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/SpaceBox2.csproj",
+      "projectUniqueName": "C:\\Users\\ayata\\OneDrive\\ドキュメント\\Develop\\stgggg2\\SpaceBox2\\SpaceBox2\\SpaceBox2.csproj",
       "projectName": "SpaceBox2",
-      "projectPath": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/SpaceBox2.csproj",
-      "packagesPath": "/Users/takumi/.nuget/packages/",
-      "outputPath": "/Users/takumi/new_stgggg/stgggg2/SpaceBox2/SpaceBox2/obj/",
+      "projectPath": "C:\\Users\\ayata\\OneDrive\\ドキュメント\\Develop\\stgggg2\\SpaceBox2\\SpaceBox2\\SpaceBox2.csproj",
+      "packagesPath": "C:\\Users\\ayata\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ayata\\OneDrive\\ドキュメント\\Develop\\stgggg2\\SpaceBox2\\SpaceBox2\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/Users/takumi/.config/NuGet/NuGet.Config"
+        "C:\\Users\\ayata\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -110,7 +108,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

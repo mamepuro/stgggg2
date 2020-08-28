@@ -8,7 +8,7 @@ namespace SpaceBox2
         public Vector2F _moveVelocity;
         //プレイヤーへの参照
         public Player _playerInfo;
-        protected int _bulletFireTimeSpen;
+        protected int _bulletFireTimeSpan;
         protected int _count;
         public Enemy(MainNode mainNode,Vector2F position, Vector2F moveVelocity, Player playerInfo):base(mainNode, position)
         {
@@ -21,6 +21,7 @@ namespace SpaceBox2
         }
         public virtual void Move()
         {
+            Position += _moveVelocity;
         }
         //public Enemy(asd.Vector2DF position, Player player)
         //{
