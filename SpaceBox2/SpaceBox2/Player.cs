@@ -12,6 +12,8 @@ namespace SpaceBox2
         public float chargeTime;
         public int _maxBulletCountInWindow;
         public int _hp;
+        public int _checkDefrostCount;
+        public readonly int _maxFrozenCount;
         public  Queue<PlayerBullet> playerBullets = new Queue<PlayerBullet>();
         public PlayersHealth _playersHealth;
         public Player(MainNode mainNode, Vector2F position):base(mainNode,position)
@@ -25,6 +27,8 @@ namespace SpaceBox2
             collider.Size = Texture.Size;
             _maxBulletCountInWindow = 3;
             _hp = 10;
+            _checkDefrostCount = 0;
+            _maxFrozenCount = 120;
             _playersHealth = PlayersHealth.Nomal;
         }
         public void Move()
@@ -75,56 +79,6 @@ namespace SpaceBox2
                 chargeTime = 0.0f;
             }
         }
-        //public override void OnCollided(CollidableObject collidableObject)
-        //{
-        //    if (collidableObject is FreezeBullet)
-        //    {
-        //        base.OnCollided(collidableObject);
-        //        if (playersHealth == PlayersHealth.Nomal)
-        //        {
-        //            this.playersHealth = PlayersHealth.Frozen;
-        //            Texture = asd.Engine.Graphics.CreateTexture2D("Resources/Frozenplayer.png");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        base.OnCollided(collidableObject);
-        //        Dispose();
-        //    }
-        //}
-        //public override void CollideWithObject(CollidableObject collidableObject)
-        //{
-        //    if (collidableObject == null)
-        //    {
-        //        return;
-        //    }
-        //    if (collidableObject is Enemy)
-        //    {
-        //        CollidableObject enemy = collidableObject;//衝突したオブジェクトがEnemyである事を明示する
-        //        if (IsCollide(enemy))
-        //        {
-        //            OnCollided(enemy);
-        //        }
-        //    }
-        //    if (collidableObject is EnemyBullet)
-        //    {
-        //        CollidableObject enemyBullet = collidableObject;
-        //        if (IsCollide(enemyBullet))
-        //        {
-        //            OnCollided(enemyBullet);
-        //            enemyBullet.OnCollided(this);
-        //        }
-        //    }
-        //    if (collidableObject is FreezeBullet)
-        //    {
-        //        CollidableObject freezeBullet = collidableObject;
-        //        if (IsCollide(freezeBullet))
-        //        {
-        //            OnCollided(freezeBullet);
-        //            freezeBullet.OnCollided(this);
-        //        }
-        //    }
-        //}
         protected override void OnCollide(CollidableObject collidableObject)
         {
             base.OnCollide(collidableObject);
@@ -142,14 +96,26 @@ namespace SpaceBox2
                 Texture = Texture2D.LoadStrict("Resources/FrozenPlayer.png");
             }
         }
+        public void DefrostPlayer()
+        {
+            if(_playersHealth == PlayersHealth.Frozen)
+            {
+                _checkDefrostCount++;
+                if(_checkDefrostCount > _maxFrozenCount)
+                {
+                    _playersHealth = PlayersHealth.Nomal;
+                    _checkDefrostCount = 0;
+                    Texture = Texture2D.LoadStrict("Resources/player.png");
+                }
+            }
+        }
         protected override void OnUpdate()
         {
             base.OnUpdate();
             Move();
             FireBullet();
             FireChargeBullet();
-            //FireChargeBullet();
-            //CheckCollision();
+            DefrostPlayer();
         }
     }
 }
