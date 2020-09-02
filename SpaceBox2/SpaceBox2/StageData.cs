@@ -6,7 +6,6 @@ namespace SpaceBox2
 {
     class StageData
     {
-        public int StageNumber { get; set; }
         /// <summary>
         /// ステージ開始後何フレーム目で敵を出現させるかを確認
         /// </summary>
@@ -19,6 +18,10 @@ namespace SpaceBox2
         /// 敵の出現するy座標
         /// </summary>
         public int PositionY { get; set; }
+        /// <summary>
+        /// 出現する敵の数
+        /// </summary>
+        public int NumberOfEnemies { get; set; }
         /// <summary>
         /// 敵の隊列パターン
         /// </summary>

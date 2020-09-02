@@ -1,8 +1,8 @@
 [
   {
-    "StageNumber": 1,
+    "NumberOfEnemies": 5,
     "SpawnCounter": 60,
-    "PositionX": 160,
+    "PositionX":800,
     "PositionY": 210,
     "Platoon": "Nomal"
   }

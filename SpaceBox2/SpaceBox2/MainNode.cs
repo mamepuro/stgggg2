@@ -9,6 +9,29 @@ namespace SpaceBox2
         private Player player;
         private int stageNumber;
         private StageData[] stageDatas;
+        /// <summary>
+        /// 敵出現等を管理するカウンタ
+        /// </summary>
+        private int stageCount;
+        /// <summary>
+        /// 敵を出現させるかどうかのフラグ
+        /// </summary>
+        private bool doSpawn;
+        /// <summary>
+        /// 出現させた敵の数
+        /// </summary>
+        private int NumberOfSpawnedEnemy;
+        /// <summary>
+        /// 読み込んだjsonファイル内の配列の数
+        /// </summary>
+        private int NumberOfJsonElements;
+        /// <summary>
+        /// 実行中のJsonの配列のインデックス
+        /// </summary>
+        private int index;
+        private bool isInterval;
+        private int intervalCount;
+        private int intervalCheckCount;
         public MainNode()
         {
         }
@@ -20,30 +43,64 @@ namespace SpaceBox2
             AddChildNode(uiNode);
             player = new Player(this, new Vector2F(300, 300));
             characterNode.AddChildNode(player);
-            //NomalEnemy nomalEnemy = new NomalEnemy(this, new Vector2F(500, 250), new Vector2F(0.0f, 0.0f), player);
-            FreezeBulletEnemy freezeBulletEnemy = new FreezeBulletEnemy(this, new Vector2F(500, 250), new Vector2F(0.0f, 0.0f), player);
-            characterNode.AddChildNode(freezeBulletEnemy);
             stageNumber = 1;
-            stageDatas = ReadJsonFile("StageConfig/Stage1.json");
+            stageCount = 0;
+            doSpawn = false;
+            isInterval = false;
+            NumberOfSpawnedEnemy = 0;
+            index = 0;
+            intervalCount = 30;
+            intervalCheckCount = 0;
+            //jsonの読み込みを行う
+            stageDatas = ReadJsonFile("StageConfig/Stage"+stageNumber.ToString()+".json");
+            NumberOfJsonElements = stageDatas.Length;
+            Console.WriteLine(NumberOfJsonElements);
             //デバック用
-            foreach(var item in stageDatas)
-            {
-                Console.WriteLine($"StageNumber = {item.StageNumber}");
-                Console.WriteLine($"PositionX= {item.PositionX}");
-                Console.WriteLine($"PositionY={item.PositionY}");
-                Console.WriteLine($"SpawnCounter={item.SpawnCounter}");
-                Console.WriteLine($"Platoon={item.Platoon}");
-            }
+                Console.WriteLine($"StageNumber = {stageDatas[index].NumberOfEnemies}");
         }
         private StageData[] ReadJsonFile(string filePath)
         {
             return Json.ReadJsonToArarry(filePath, "utf-8");
         }
+        private void SpawnEnemy(int spawnCount)
+        {
+            if(stageDatas[index].SpawnCounter == spawnCount)
+            {
+                doSpawn = true;
+            }
+            if(doSpawn)
+            {
+                if(stageDatas[index].NumberOfEnemies <= NumberOfSpawnedEnemy)
+                {
+                    doSpawn = false;
+                    NumberOfSpawnedEnemy = 0;
+                    if(stageDatas.Length - 1 > index)
+                    {
+                        index++;
+                    }
+                }
+                else if(!isInterval)
+                {
+                    NomalEnemy nomalEnemy = new NomalEnemy(this, new Vector2F(stageDatas[index].PositionX, stageDatas[index].PositionY), new Vector2F(-1.0f, 0.0f), player);
+                    AddChildNode(nomalEnemy);
+                    NumberOfSpawnedEnemy++;
+                    isInterval = true;
+                }
+                intervalCheckCount++;
+                if(intervalCheckCount >= intervalCount)
+                {
+                    isInterval = false;
+                    intervalCheckCount = 0;
+                }
+            }
+        }
         protected override void OnUpdate()
         {
             base.OnUpdate();
+            stageCount++;
+            SpawnEnemy(stageCount);
             //デバック用
-            //Console.WriteLine(player.playerBullets.Count);
+            Console.WriteLine(stageCount);
         }
         protected override void OnRemoved()
         {
