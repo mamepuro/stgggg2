@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Altseed2;
 
 namespace SpaceBox2
@@ -8,6 +9,9 @@ namespace SpaceBox2
         private Node characterNode = new Node();
         private Player player;
         private int stageNumber;
+        /// <summary>
+        /// 読み込んだステージ情報
+        /// </summary>
         private StageData[] stageDatas;
         /// <summary>
         /// 敵出現等を管理するカウンタ
@@ -81,8 +85,8 @@ namespace SpaceBox2
                 }
                 else if(!isInterval)
                 {
-                    NomalEnemy nomalEnemy = new NomalEnemy(this, new Vector2F(stageDatas[index].PositionX, stageDatas[index].PositionY), new Vector2F(-1.0f, 0.0f), player);
-                    AddChildNode(nomalEnemy);
+                    WeavingEnemy weavingEnemy = new WeavingEnemy(this, new Vector2F(stageDatas[index].PositionX, stageDatas[index].PositionY), new Vector2F(-3.0f, 0.0f), player);
+                    AddChildNode(weavingEnemy);
                     NumberOfSpawnedEnemy++;
                     isInterval = true;
                 }

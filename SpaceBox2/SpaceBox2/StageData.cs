@@ -1,4 +1,5 @@
 ﻿using System;
+using Altseed2;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,6 +19,7 @@ namespace SpaceBox2
         /// 敵の出現するy座標
         /// </summary>
         public int PositionY { get; set; }
+        public int MoveVelocityX { get; set; }
         /// <summary>
         /// 出現する敵の数
         /// </summary>

@@ -19,7 +19,7 @@ namespace SpaceBox2
             collider.Size = Texture.Size;
             //Position = position;
         }
-        public virtual void Move()
+        protected virtual void Move()
         {
             Position += _moveVelocity;
         }

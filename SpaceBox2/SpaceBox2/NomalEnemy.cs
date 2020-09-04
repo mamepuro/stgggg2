@@ -13,7 +13,7 @@ namespace SpaceBox2
             _bulletFireTimeSpan = 90;
             _count = 0;
         }
-        public override void Move()
+        protected override void Move()
         {
             base.Move();
             Position += _moveVelocity;
