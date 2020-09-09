@@ -17,7 +17,6 @@ namespace SpaceBox2
             Texture = Texture2D.LoadStrict("Resources/Enemy.png");
             doSurvey = true;
             collider.Size = Texture.Size;
-            //Position = position;
         }
         protected virtual void Move()
         {

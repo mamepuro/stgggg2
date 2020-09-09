@@ -16,15 +16,7 @@ namespace SpaceBox2
         /// <summary>
         /// 敵出現等を管理するカウンタ
         /// </summary>
-        private int stageCount;
-        /// <summary>
-        /// 敵を出現させるかどうかのフラグ
-        /// </summary>
-        private bool doSpawn;
-        /// <summary>
-        /// 出現させた敵の数
-        /// </summary>
-        private int NumberOfSpawnedEnemy;
+        public int stageCount;
         /// <summary>
         /// 読み込んだjsonファイル内の配列の数
         /// </summary>
@@ -33,9 +25,6 @@ namespace SpaceBox2
         /// 実行中のJsonの配列のインデックス
         /// </summary>
         private int index;
-        private bool isInterval;
-        private int intervalCount;
-        private int intervalCheckCount;
         public MainNode()
         {
         }
@@ -49,7 +38,6 @@ namespace SpaceBox2
             characterNode.AddChildNode(player);
             stageNumber = 1;
             stageCount = 0;
-            doSpawn = false;
             isInterval = false;
             NumberOfSpawnedEnemy = 0;
             index = 0;
