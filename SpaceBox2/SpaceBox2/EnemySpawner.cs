@@ -26,21 +26,22 @@ namespace SpaceBox2
         /// <summary>
         /// 出現させる敵の数
         /// </summary>
-        int _numberOFEnemy;
+        int _numberOfEnemy;
         int _count;
         //mainNodeへの参照
         MainNode _mainNode;
         //stageDataへの参照
         StageData _stageDatas;
-        public EnemySpawner(MainNode mainNode, int numberOfEnemy, int intervalCount, StageData stageData , string EnemyClassName)
+        Player _player;
+        public EnemySpawner(MainNode mainNode, int numberOfEnemy, int intervalCount, StageData stageData , string EnemyClassName, Player player)
         {
-            doSpawn = true;
             isInterval = false;
             _mainNode = mainNode;
-            _numberOFEnemy = numberOfEnemy;
+            _numberOfEnemy = numberOfEnemy;
             _intervalCount = intervalCount;
             _stageDatas = stageData;
             _count = 0;
+            _player = player;
         }
         public void CheckSpawnEnemy(string enemyName)
         {
@@ -53,6 +54,7 @@ namespace SpaceBox2
             {
                 SpawnEnemy(enemyName);
                 isInterval = true;
+                RemoveThisIfNumberOfEnemyIsZero(_numberOfEnemy);
             }else
             {
                 _count++;
@@ -60,7 +62,21 @@ namespace SpaceBox2
         }
         public void SpawnEnemy(string enemyName)
         {
-
+            WeavingEnemy weavingEnemy = new WeavingEnemy(_mainNode, new Vector2F(_stageDatas.PositionX, _stageDatas.PositionY), new Vector2F(-3.0f, 0.0f), _player);
+            _mainNode.characterNode.AddChildNode(weavingEnemy);
+            _numberOfEnemy--;
+        }
+        public void RemoveThisIfNumberOfEnemyIsZero(int enemyNumber)
+        {
+            if (enemyNumber <= 0)
+            {
+                Parent.RemoveChildNode(this);
+            }
+        }
+        protected override void OnUpdate()
+        {
+            base.OnUpdate();
+            CheckSpawnEnemy("dammy");
         }
     }
 }

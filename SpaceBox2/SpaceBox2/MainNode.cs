@@ -6,7 +6,7 @@ namespace SpaceBox2
 {
     public class MainNode:Node
     {
-        private Node characterNode = new Node();
+        public Node characterNode = new Node();
         private Player player;
         private int stageNumber;
         /// <summary>
@@ -38,11 +38,7 @@ namespace SpaceBox2
             characterNode.AddChildNode(player);
             stageNumber = 1;
             stageCount = 0;
-            isInterval = false;
-            NumberOfSpawnedEnemy = 0;
             index = 0;
-            intervalCount = 30;
-            intervalCheckCount = 0;
             //jsonの読み込みを行う
             stageDatas = ReadJsonFile("StageConfig/Stage"+stageNumber.ToString()+".json");
             NumberOfJsonElements = stageDatas.Length;
@@ -58,31 +54,13 @@ namespace SpaceBox2
         {
             if(stageDatas[index].SpawnCounter == spawnCount)
             {
-                doSpawn = true;
-            }
-            if(doSpawn)
-            {
-                if(stageDatas[index].NumberOfEnemies <= NumberOfSpawnedEnemy)
+                EnemySpawner enemySpawner = new EnemySpawner(this, stageDatas[index].NumberOfEnemies, 30, stageDatas[index], "dammy", player);
+                AddChildNode(enemySpawner);
+                //WeavingEnemy weavingEnemy = new WeavingEnemy(this, new Vector2F(stageDatas[index].PositionX, stageDatas[index].PositionY), new Vector2F(-3.0f, 0.0f), player);
+                //characterNode.AddChildNode(weavingEnemy);
+                if (stageDatas.Length - 1 > index)
                 {
-                    doSpawn = false;
-                    NumberOfSpawnedEnemy = 0;
-                    if(stageDatas.Length - 1 > index)
-                    {
-                        index++;
-                    }
-                }
-                else if(!isInterval)
-                {
-                    WeavingEnemy weavingEnemy = new WeavingEnemy(this, new Vector2F(stageDatas[index].PositionX, stageDatas[index].PositionY), new Vector2F(-3.0f, 0.0f), player);
-                    AddChildNode(weavingEnemy);
-                    NumberOfSpawnedEnemy++;
-                    isInterval = true;
-                }
-                intervalCheckCount++;
-                if(intervalCheckCount >= intervalCount)
-                {
-                    isInterval = false;
-                    intervalCheckCount = 0;
+                    index++;
                 }
             }
         }
