@@ -28,5 +28,9 @@ namespace SpaceBox2
         /// 敵の隊列パターン
         /// </summary>
         public string Platoon { get; set; }
+        /// <summary>
+        ///　出現する敵の名前
+        /// </summary>
+        public string EnemyName { get; set; }
     }
 }

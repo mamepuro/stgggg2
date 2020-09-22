@@ -33,8 +33,7 @@ namespace SpaceBox2
         protected override void OnUpdate()
         {
             base.OnUpdate();
-        //    DisposeEnemy();
-        //    CheckCollision();
+            RemoveMyselfIfOutOfWindow();
         }
     }
 }

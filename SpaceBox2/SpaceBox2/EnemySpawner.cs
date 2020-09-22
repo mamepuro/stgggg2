@@ -11,14 +11,9 @@ namespace SpaceBox2
     class EnemySpawner:Node
     {
         /// <summary>
-        /// 敵をスポーンさせるかを管理するフラグ
-        /// </summary>
-        bool doSpawn;
-        /// <summary>
         /// インターバル中（連隊を出現させる途中かどうか）のフラグ
         /// </summary>
         bool isInterval;
-        int spawnCount;
         /// <summary>
         /// インターバル時間を管理するカウンタ
         /// </summary>
@@ -28,6 +23,7 @@ namespace SpaceBox2
         /// </summary>
         int _numberOfEnemy;
         int _count;
+        string _enemyName;
         //mainNodeへの参照
         MainNode _mainNode;
         //stageDataへの参照
@@ -42,6 +38,8 @@ namespace SpaceBox2
             _stageDatas = stageData;
             _count = 0;
             _player = player;
+            _enemyName = EnemyClassName;
+            
         }
         public void CheckSpawnEnemy(string enemyName)
         {
@@ -62,8 +60,23 @@ namespace SpaceBox2
         }
         public void SpawnEnemy(string enemyName)
         {
-            WeavingEnemy weavingEnemy = new WeavingEnemy(_mainNode, new Vector2F(_stageDatas.PositionX, _stageDatas.PositionY), new Vector2F(-3.0f, 0.0f), _player);
-            _mainNode.characterNode.AddChildNode(weavingEnemy);
+            switch(enemyName)
+            {
+                case "Nomal":
+                    NomalEnemy nomalEnemy = new NomalEnemy(_mainNode, new Vector2F(_stageDatas.PositionX, _stageDatas.PositionY), new Vector2F(-3.0f, 0.0f), _player);
+                    _mainNode.characterNode.AddChildNode(nomalEnemy);
+                    break;
+                case "Weaving":
+                    WeavingEnemy weavingEnemy = new WeavingEnemy(_mainNode, new Vector2F(_stageDatas.PositionX, _stageDatas.PositionY), new Vector2F(-3.0f, 0.0f), _player);
+                    _mainNode.characterNode.AddChildNode(weavingEnemy);
+                    break;
+                case "Freeze":
+                    FreezeBulletEnemy freezeBulletEnemy = new FreezeBulletEnemy(_mainNode, new Vector2F(_stageDatas.PositionX, _stageDatas.PositionY), new Vector2F(-3.0f, 0.0f), _player);
+                    _mainNode.characterNode.AddChildNode(freezeBulletEnemy);
+                    break;
+                default:
+                    break;
+            }
             _numberOfEnemy--;
         }
         public void RemoveThisIfNumberOfEnemyIsZero(int enemyNumber)
@@ -76,7 +89,7 @@ namespace SpaceBox2
         protected override void OnUpdate()
         {
             base.OnUpdate();
-            CheckSpawnEnemy("dammy");
+            CheckSpawnEnemy(_enemyName);
         }
     }
 }

@@ -7,6 +7,6 @@ namespace SpaceBox2
     public enum Platoon
     {
         Nomal,
-        Circle
+        AllAtOnce,//連続出現ではなく一斉に出現させる
     }
 }

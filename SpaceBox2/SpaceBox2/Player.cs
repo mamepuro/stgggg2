@@ -49,7 +49,6 @@ namespace SpaceBox2
             {
                 Position -= _moveDistanceX;
             }
-            //float playerHalfSizeX = Texture.Size.X / 2.0f;
             _position = Position;
             _position.X = Math.Clamp(_position.X, 0.0f, Engine.WindowSize.X - Texture.Size.X);
             _position.Y = Math.Clamp(_position.Y, 0.0f, Engine.WindowSize.Y - Texture.Size.Y);

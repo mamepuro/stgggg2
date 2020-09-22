@@ -54,10 +54,8 @@ namespace SpaceBox2
         {
             if(stageDatas[index].SpawnCounter == spawnCount)
             {
-                EnemySpawner enemySpawner = new EnemySpawner(this, stageDatas[index].NumberOfEnemies, 30, stageDatas[index], "dammy", player);
+                EnemySpawner enemySpawner = new EnemySpawner(this, stageDatas[index].NumberOfEnemies, 30, stageDatas[index], stageDatas[index].EnemyName, player);
                 AddChildNode(enemySpawner);
-                //WeavingEnemy weavingEnemy = new WeavingEnemy(this, new Vector2F(stageDatas[index].PositionX, stageDatas[index].PositionY), new Vector2F(-3.0f, 0.0f), player);
-                //characterNode.AddChildNode(weavingEnemy);
                 if (stageDatas.Length - 1 > index)
                 {
                     index++;
@@ -69,11 +67,11 @@ namespace SpaceBox2
             base.OnUpdate();
             stageCount++;
             SpawnEnemy(stageCount);
-            //デバック用
             Console.WriteLine(stageCount);
         }
         protected override void OnRemoved()
         {
+            //デバック用
             base.OnRemoved();
             CollidableObject.objectCollection.Clear();
         }

@@ -1,9 +1,18 @@
 [
   {
-    "NumberOfEnemies": 1,
+    "NumberOfEnemies": 3,
     "SpawnCounter": 60,
-    "PositionX":800,
+    "PositionX":860,
     "PositionY": 210,
-    "Platoon": "Nomal"
+    "Platoon": "Nomal",
+    "EnemyName": "Weaving"
+  },
+  {
+    "NumberOfEnemies": 8,
+    "SpawnCounter": 61,
+    "PositionX":860,
+    "PositionY": 310,
+    "Platoon": "Nomal",
+    "EnemyName": "Freeze"
   }
 ]
