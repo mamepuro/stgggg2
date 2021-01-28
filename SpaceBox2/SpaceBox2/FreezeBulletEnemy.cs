@@ -12,12 +12,13 @@ namespace SpaceBox2
             :base(mainNode,position,moveVelocity,player)
         {
             _bulletFireTimeSpan = 90;
+            Score = 100;
         }
         public void FireFreezeBullet()
         {
             _bulletsMoveVelocity = (_playerInfo.Position - Position).Normal * 3.0f;
             FreezeBullet freezeBullet = new FreezeBullet(_mainNode, Position, _bulletsMoveVelocity);
-            Engine.AddNode(freezeBullet);
+            Parent.AddChildNode(freezeBullet);
         }
         public void JudgeFireFreezeBullet(int count)
         {

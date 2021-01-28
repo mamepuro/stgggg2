@@ -12,6 +12,7 @@ namespace SpaceBox2
         {
             _bulletFireTimeSpan = 90;
             _count = 0;
+            Score = 100;
         }
         protected override void Move()
         {
@@ -22,7 +23,7 @@ namespace SpaceBox2
         {
             _bulletsMoveVelocity = (_playerInfo.Position - Position).Normal * 3.0f;
             EnemyBullet enemyBullet = new EnemyBullet(_mainNode,Position, _bulletsMoveVelocity);
-            Engine.AddNode(enemyBullet);
+            Parent.AddChildNode(enemyBullet);
         }
         public void JudgeFireBullet()
         {

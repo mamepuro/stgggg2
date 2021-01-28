@@ -15,7 +15,10 @@ namespace SpaceBox2
             //Engine.AddNode(nomalEnemy);
             MainNode mainNode = new MainNode();
             Engine.AddNode(mainNode);
-            while(Engine.DoEvents())
+            // 音ファイルを読み込みます。
+            // 効果音の場合は第2引数を true に設定して事前にファイルを解凍することが推奨されている。
+
+            while (Engine.DoEvents())
             {
                 Engine.Update();
                 if(Engine.Keyboard.GetKeyState(Key.Escape) == ButtonState.Push)

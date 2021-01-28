@@ -25,6 +25,8 @@ namespace SpaceBox2
         /// 実行中のJsonの配列のインデックス
         /// </summary>
         private int index;
+
+        public TextNode scoreNode = new TextNode();
         public MainNode()
         {
         }
@@ -44,7 +46,7 @@ namespace SpaceBox2
             NumberOfJsonElements = stageDatas.Length;
             Console.WriteLine(NumberOfJsonElements);
             //デバック用
-                Console.WriteLine($"StageNumber = {stageDatas[index].NumberOfEnemies}");
+                //Console.WriteLine($"StageNumber = {stageDatas[index].NumberOfEnemies}");
         }
         private StageData[] ReadJsonFile(string filePath)
         {
@@ -67,7 +69,7 @@ namespace SpaceBox2
             base.OnUpdate();
             stageCount++;
             SpawnEnemy(stageCount);
-            Console.WriteLine(stageCount);
+            //Console.WriteLine(stageCount);
         }
         protected override void OnRemoved()
         {
