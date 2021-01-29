@@ -26,7 +26,22 @@ namespace SpaceBox2
         /// </summary>
         private int index;
 
+        /// <summary>
+        /// UI表示用のノード。
+        /// UI関係のオブジェクトはこのノードを祖先として持つようにする
+        /// </summary>
+        public Node uiNode = new Node();
+
+        /// <summary>
+        /// スコア表示用のNode
+        /// </summary>
         public TextNode scoreNode = new TextNode();
+
+        /// <summary>
+        /// スコア点数
+        /// </summary>
+        public int Score { get; set; }
+
         public MainNode()
         {
         }
@@ -45,6 +60,14 @@ namespace SpaceBox2
             stageDatas = ReadJsonFile("StageConfig/Stage"+stageNumber.ToString()+".json");
             NumberOfJsonElements = stageDatas.Length;
             Console.WriteLine(NumberOfJsonElements);
+            Score = 0;
+
+            scoreNode.Font = Font.LoadDynamicFontStrict("Resources/mamemoji.ttf", 50);
+
+            scoreNode.Position = new Vector2F();
+
+            scoreNode.Text = "Score : ";
+            uiNode.AddChildNode(scoreNode);
             //デバック用
                 //Console.WriteLine($"StageNumber = {stageDatas[index].NumberOfEnemies}");
         }
@@ -68,7 +91,12 @@ namespace SpaceBox2
         {
             base.OnUpdate();
             stageCount++;
-            SpawnEnemy(stageCount);
+            scoreNode.Text = "Score : " + Score;
+            //SpawnEnemy(stageCount);
+            if(stageCount % 120 == 0)
+            {
+                AddChildNode(new NomalEnemy(this, new Vector2F(500, 300), new Vector2F(-1, 0), player));
+            }
             //Console.WriteLine(stageCount);
         }
         protected override void OnRemoved()

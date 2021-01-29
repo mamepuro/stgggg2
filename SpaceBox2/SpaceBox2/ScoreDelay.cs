@@ -8,7 +8,7 @@ namespace SpaceBox2
     class ScoreDelay:TextNode
     {
         /// <summary>
-        /// 表示するフレーム数
+        /// スコアを表示するフレーム数
         /// </summary>
         private const int livingFrame = 30;
         private Vector2F moveVelocity;

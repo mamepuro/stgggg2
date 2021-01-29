@@ -35,6 +35,7 @@ namespace SpaceBox2
             scoreNode.Text = score.ToString();
             //scoreNode.Color = new Color(255, 0, 0);
             _mainNode.AddChildNode(scoreNode);
+            _mainNode.Score += this.Score;
         }
         protected override void OnCollide(CollidableObject collidableObject)
         {

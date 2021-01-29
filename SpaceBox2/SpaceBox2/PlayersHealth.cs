@@ -7,6 +7,7 @@ namespace SpaceBox2
     public enum PlayersHealth
     {
         Nomal,
-        Frozen
+        Frozen,
+        Damaged
     }
 }

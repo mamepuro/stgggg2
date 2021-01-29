@@ -13,9 +13,14 @@ namespace SpaceBox2
         public int _maxBulletCountInWindow;
         public int _hp;
         public int _checkDefrostCount;
+
+        /// <summary>
+        /// Frozen状態の継続時間
+        /// </summary>
         public readonly int _maxFrozenCount;
         public  Queue<PlayerBullet> playerBullets = new Queue<PlayerBullet>();
         public PlayersHealth _playersHealth;
+        private IEnumerator<int> coroutine;
         public Player(MainNode mainNode, Vector2F position):base(mainNode,position)
         {
             Texture = Texture2D.LoadStrict("Resources/player.png");
@@ -95,6 +100,8 @@ namespace SpaceBox2
                 Texture = Texture2D.LoadStrict("Resources/FrozenPlayer.png");
             }
         }
+
+
         public void DefrostPlayer()
         {
             if(_playersHealth == PlayersHealth.Frozen)
